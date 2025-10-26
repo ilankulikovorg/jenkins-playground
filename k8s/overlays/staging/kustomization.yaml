@@ -1,0 +1,15 @@
+resources:
+  - ../../base
+
+namePrefix: staging-
+commonLabels:
+  environment: staging
+
+patches:
+  - target:
+      kind: Deployment
+      name: mock-app
+    patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 2
